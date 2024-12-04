@@ -1,1 +1,24 @@
-spring.application.name=weaving
+spring:
+  application:
+    name: eclipselink-weaving
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings.trace: false
+      settings.web-allow-others: false
+
+
+database:
+  url: jdbc:h2:mem:testdb
+  username: sa
+  password: "password"
+  initialSize: 10
+  maxActive: 50
+  minIdle: 5
+  validationQuery: "SELECT 1"
+  testOnBorrow: "true"
+  testOnReturn: "true"
+  testWhileIdle: "true"
+
