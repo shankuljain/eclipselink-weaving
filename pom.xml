@@ -147,9 +147,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
-					<reuseForks>false</reuseForks>
 					<argLine>
-						-add-opens java.base/java.lang=ALL-UNNAMED
+						--add-opens java.base/java.lang=ALL-UNNAMED
 						-javaagent:${user.home}/.m2/repository/org/springframework/spring-instrument/5.3.18/spring-instrument-5.3.18.jar
 					</argLine>
 				</configuration>
