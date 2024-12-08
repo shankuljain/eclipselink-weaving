@@ -102,7 +102,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-instrument</artifactId>
-			<scope>test</scope>
+			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
@@ -152,6 +152,27 @@
 						-javaagent:${user.home}/.m2/repository/org/springframework/spring-instrument/5.3.18/spring-instrument-5.3.18.jar
 					</argLine>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>dev.aspectj</groupId>
+				<artifactId>agent-embedder-maven-plugin</artifactId>
+				<version>1.0</version>
+				<executions>
+					<execution>
+						<id>embed-agent</id>
+						<goals>
+							<goal>embed</goal>
+						</goals>
+						<configuration>
+							<javaAgents>
+								<agent>
+									<groupId>org.springframework</groupId>
+									<artifactId>spring-instrument</artifactId>
+								</agent>
+							</javaAgents>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
