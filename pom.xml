@@ -98,6 +98,13 @@
 			<version>1.6</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-instrument -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-instrument</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -130,11 +137,22 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<jvmArguments>
+						--add-opens java.base/java.lang=ALL-UNNAMED
+						-javaagent:${user.home}/.m2/repository/org/springframework/spring-instrument/5.3.18/spring-instrument-5.3.18.jar
+					</jvmArguments>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<reuseForks>false</reuseForks>
+					<argLine>
+						-add-opens java.base/java.lang=ALL-UNNAMED
+						-javaagent:${user.home}/.m2/repository/org/springframework/spring-instrument/5.3.18/spring-instrument-5.3.18.jar
+					</argLine>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
