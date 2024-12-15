@@ -27,6 +27,6 @@ class WeavingApplicationTests {
 		QueryCountHolder.clear();
 		this.projectRepository.findAllById(List.of(1,2));
 		var count = QueryCountHolder.getGrandTotal().getSelect();
-		Assertions.assertEquals(3, count);
+		Assertions.assertEquals(1, count);
 	}
 }
