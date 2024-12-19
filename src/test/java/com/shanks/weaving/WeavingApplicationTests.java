@@ -1,5 +1,6 @@
 package com.shanks.weaving;
 
+import com.shanks.weaving.entities.Post;
 import com.shanks.weaving.repository.PostRepository;
 import net.ttddyy.dsproxy.QueryCountHolder;
 import org.junit.jupiter.api.Assertions;
@@ -27,6 +28,10 @@ class WeavingApplicationTests {
 		QueryCountHolder.clear();
 		this.projectRepository.findAllById(List.of(1,2));
 		var count = QueryCountHolder.getGrandTotal().getSelect();
-		Assertions.assertEquals(3, count);
+		Assertions.assertEquals(1, count);
+	}
+
+	private Post getPost(){
+		return null;
 	}
 }
