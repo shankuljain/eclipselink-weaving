@@ -37,8 +37,9 @@ class WeavingApplicationTests {
 		Assertions.assertEquals(1, count);
 	}
 
-	// comment below function and above test will pass.
-	private Post getPost(Integer id){
-		 return null;
+	static class Wrapper {
+		Post getPost(Integer id) {
+			return null;
+		}
 	}
 }
