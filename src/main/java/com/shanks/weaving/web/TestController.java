@@ -23,4 +23,10 @@ public class TestController {
         var posts = this.postRepository.findAllById(List.of(1,2));
         return ResponseEntity.ok(posts);
     }
+
+    // add dummy method in controller.
+    // having a private method here doesn't affect like tests.
+    private Post getPost(Integer id){
+        return this.postRepository.findById(id).orElseThrow();
+    }
 }
